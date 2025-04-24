@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  margin-left: 8%;
+  margin-right: 8%;
+}
+
+.logo {
+  font-size: 35px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 90px;
+}
+
+.nav-links li a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links li a:hover {
+  color: green;
+}
+
+.search-form input {
+  border-radius: 20px;
+  border: none;
+  padding: 5px 15px;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 8%;
+  background-color: #fff;
+  height: 90vh;
+  scroll-snap-align: start;
+}
+
+.hero-text {
+  max-width: 50%;
+  margin-left: 50px;
+}
+
+.hero-text h1 {
+  font-size: 75px;
+  font-weight: bold;
+}
+
+.hero-text .highlight {
+  color: #ed6d23;
+}
+
+.hero-image {
+  max-width: 45%;
+  margin-right: 50px;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Popular Section */
+.container-card {
+  display: flex;
+  justify-content: center;
+}
+
+.card-body {
+  border: 1px solid #ccc;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #ed6d23;
+}
+.container-slider{
+
+ overflow-y: scroll;
+scroll-snap-type: mandatory;
+
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 40px 5%;
+  }
+
+  .hero-text, .hero-image {
+    max-width: 100%;
+    margin: 20px 0;
+  }
+}
