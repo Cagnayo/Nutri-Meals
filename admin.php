@@ -95,7 +95,7 @@ function previewText($text, $limit = 60) {
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
+                <th>Name of fruit</th>
                 <th>Ingredients</th>
                 <th>Vitamins</th>
                 <th>Actions</th>
