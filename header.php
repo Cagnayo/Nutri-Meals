@@ -89,7 +89,7 @@ header {
     width: 100%;
     margin-top: 10px;
   }
-  .nav .ul.li.a {
+  .nav.ul.li.a {
     display: flex;
     gap: 20px;
     justify-content: flex-end;
