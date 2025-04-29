@@ -124,7 +124,7 @@ header {
       <ul class="nav-links">
         <li><a href="index.php">Home</a></li>
         <li><a href="recipes.php">All Recipes</a></li>
-        <li><a href="course.php">Course</a></li>
+        <li><a href="index.php">About</a></li>
       </ul>
     </nav>
     <form class="search-form" role="search">

@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nutri-Meal Categories</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
@@ -27,7 +29,7 @@
       margin: auto;
       transition: all 0.3s ease;
     }
-
+  
     .category-item:hover {
       background-color: #ffd600;
       transform: scale(1.05);
@@ -39,10 +41,8 @@
       font-size: 16px;
     }
 
-    .category-link {
-      text-decoration: none;
-      color: black;
-    }
+    
+  
     .swiper {
       width: 1400px;
       height: 300px;
@@ -78,128 +78,107 @@
 
 <section class="section-categories">
 <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
-    </div>
-    <div class="swiper-pagination"></div>
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">Slide 1</div>
+    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">Slide 3</div>
+    <div class="swiper-slide">Slide 4</div>
+    <div class="swiper-slide">Slide 5</div>
+  </div>
+  <div class="swiper-pagination"></div>
   </div>
   </div>
   <div class="categories text-center">
-    <h1>Top Categories</h1>
+  <h1>Categories</h1>
   </div>
-
-  <div class="container">
-    <div class="row g-4 justify-content-center">
-      
-      <!-- Example Category -->
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/chicken.png" alt="Chicken" width="50">
-          </div>
-          <div class="category-text">Chicken</div>
-        </a>
+  <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3 column-gap-5  row-gap-5 d-flex justify-content-center">
+  <div class="card mb-3" style="max-width: 400px;">
+  <div class="row g-0">
+    <div class="col-md-4 ps-5">
+    <i class="fa-solid fa-fish fa-6x"></i>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-title d-flex justify-content-center align-item-center"> 
+          <h1> Pork</h1>
+        </div>
       </div>
-
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/pork.png" alt="Pork" width="50">
-          </div>
-          <div class="category-text">Pork</div>
-        </a>
-      </div>
-
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/dessert.png" alt="Dessert" width="50">
-          </div>
-          <div class="category-text">Dessert</div>
-        </a>
-      </div>
-
-      <!-- ADD MORE CATEGORIES SAME FORMAT -->
-      <!-- Example Placeholder -->
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-      <div class="col-4 col-sm-3 col-md-2 text-center">
-        <a href="#" class="category-link">
-          <div class="category-item">
-            <img src="your-icon-path/beef.png" alt="Beef" width="50">
-          </div>
-          <div class="category-text">Beef</div>
-        </a>
-      </div>
-
     </div>
   </div>
+</div>
+<div class="card mb-3" style="max-width: 400px;">
+  <div class="row g-0">
+    <div class="col-md-4 ps-5">
+    <i class="fa-solid fa-fish fa-6x"></i>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-title d-flex justify-content-center align-item-center"> 
+          <h1> Pork</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card mb-3" style="max-width: 400px;">
+  <div class="row g-0">
+    <div class="col-md-4 ps-5">
+    <i class="fa-solid fa-fish fa-6x"></i>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-title d-flex justify-content-center align-item-center"> 
+          <h1> Pork</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card mb-3" style="max-width: 400px;">
+  <div class="row g-0">
+    <div class="col-md-4 ps-5">
+    <i class="fa-solid fa-fish fa-6x"></i>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-title d-flex justify-content-center align-item-center"> 
+          <h1> Pork</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card mb-3" style="max-width: 400px;">
+  <div class="row g-0">
+    <div class="col-md-4 ps-5">
+    <i class="fa-solid fa-fish fa-6x"></i>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-title d-flex justify-content-center align-item-center"> 
+          <h1> Pork</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card mb-3" style="max-width: 400px;">
+  <div class="row g-0">
+    <div class="col-md-4 ps-5">
+    <i class="fa-solid fa-fish fa-6x"></i>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <div class="card-title d-flex justify-content-center align-item-center"> 
+          <h1> Pork</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
 </section>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
