@@ -1,7 +1,15 @@
 <?php
 session_start();
 include 'connection.php';
-
+if (!isset($_SESSION['admin'])) {
+    header("Location: login.php");
+    exit();
+}
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
 // Handle delete logic
 if (isset($_GET['delete'])) {
     $idToDelete = intval($_GET['delete']);
@@ -19,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
     $ingredients = $_POST['ingredients'];
     $vitamins = $_POST['vitamins'];
+    $category = $_POST['category'];
 
     $product_img_path = '';
     $sample_img_path = '';
@@ -38,20 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($id) {
-        $sql = "UPDATE `admin-series` SET product_name=?, product_img=?, ingredients=?, vitamins=?, sample_img=? WHERE id=?";
+        $sql = "UPDATE `admin-series` SET product_name=?, product_img=?, ingredients=?, vitamins=?, sample_img=?, category=? WHERE id=?";
         $stmt = $con->prepare($sql);
-        $stmt->bind_param("sssssi", $name, $product_img_path, $ingredients, $vitamins, $sample_img_path, $id);
+        $stmt->bind_param("ssssssi", $name, $product_img_path, $ingredients, $vitamins, $sample_img_path, $category, $id);
     } else {
-        $sql = "INSERT INTO `admin-series` (product_name, product_img, ingredients, vitamins, sample_img) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `admin-series` (product_name, product_img, ingredients, vitamins, sample_img, category) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $con->prepare($sql);
-        $stmt->bind_param("sssss", $name, $product_img_path, $ingredients, $vitamins, $sample_img_path);
+        $stmt->bind_param("ssssss", $name, $product_img_path, $ingredients, $vitamins, $sample_img_path, $category);
     }
 
     $stmt->execute();
     $stmt->close();
 }
 
-// Fetch data for display
+// Fetch data
 $result = $con->query("SELECT * FROM `admin-series`");
 
 function previewText($text, $limit = 60) {
@@ -64,38 +73,21 @@ function previewText($text, $limit = 60) {
 <head>
     <meta charset="UTF-8">
     <title>Fruit Admin Panel</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        body {
-            background-color: #f5f5f5;
-        }
-        .container {
-            margin-top: 40px;
-        }
-        .modal-header, .btn-success {
-            background-color: #5cb85c;
-            color: white;
-        }
-        .table th {
-            background-color: #f0f0f0;
-        }
-    </style>
 </head>
 <body>
 <div class="container">
     <h2><span class="glyphicon glyphicon-apple"></span> Manage Fruits & Vegetables</h2>
     <button class="btn btn-success" data-toggle="modal" data-target="#dataModal">
         <span class="glyphicon glyphicon-plus"></span> Add New
-    </button>
+    </button>  <a href="?logout=true" class="btn btn-danger pull-right">
+            <span class="glyphicon glyphicon-log-out"></span> Logout
+        </a>
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Name of fruit</th>
+                <th>Name</th>
+                <th>Category</th>
                 <th>Ingredients</th>
                 <th>Vitamins</th>
                 <th>Actions</th>
@@ -105,22 +97,28 @@ function previewText($text, $limit = 60) {
             <?php while($row = $result->fetch_assoc()): ?>
             <tr>
                 <td><?= htmlspecialchars($row['product_name']) ?></td>
+                <td><?= htmlspecialchars($row['category']) ?></td>
                 <td><?= previewText($row['ingredients']) ?></td>
                 <td><?= previewText($row['vitamins']) ?></td>
+
                 <td>
-                    <button class="btn btn-warning btn-sm editBtn" 
-                            data-id="<?= $row['id'] ?>"
-                            data-name="<?= htmlspecialchars($row['product_name']) ?>"
-                            data-product_img="<?= htmlspecialchars($row['product_img']) ?>"
-                            data-ingredients="<?= htmlspecialchars($row['ingredients']) ?>"
-                            data-vitamins="<?= htmlspecialchars($row['vitamins']) ?>"
-                            data-sample_img="<?= htmlspecialchars($row['sample_img']) ?>">
-                        <span class="glyphicon glyphicon-edit"></span> Edit
-                    </button>
-                    <a href="?delete=<?= $row['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
-                        <span class="glyphicon glyphicon-trash"></span> Delete
-                    </a>
-                </td>
+    <a href="view-product.php?id=<?= $row['id'] ?>" class="btn btn-info btn-sm">
+        <span class="glyphicon glyphicon-eye-open"></span> View
+    </a>
+    <button class="btn btn-warning btn-sm editBtn" 
+            data-id="<?= $row['id'] ?>"
+            data-name="<?= htmlspecialchars($row['product_name']) ?>"
+            data-product_img="<?= htmlspecialchars($row['product_img']) ?>"
+            data-ingredients="<?= htmlspecialchars($row['ingredients']) ?>"
+            data-vitamins="<?= htmlspecialchars($row['vitamins']) ?>"
+            data-sample_img="<?= htmlspecialchars($row['sample_img']) ?>"
+            data-category="<?= htmlspecialchars($row['category']) ?>">
+        <span class="glyphicon glyphicon-edit"></span> Edit
+    </button>
+    <a href="?delete=<?= $row['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
+        <span class="glyphicon glyphicon-trash"></span> Delete
+    </a>
+</td>
             </tr>
             <?php endwhile; ?>
         </tbody>
@@ -143,6 +141,17 @@ function previewText($text, $limit = 60) {
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" name="name" id="modal-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select name="category" id="modal-category" class="form-control" required>
+                            <option value="">-- Select Category --</option>
+                            <option value="Pork">Pork</option>
+                            <option value="Fish">Fish</option>
+                            <option value="Vegetable">Vegetable</option>
+                            <option value="Dessert">Dessert</option>
+                            <option value="Beef">Beef</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Product Image</label>
@@ -174,10 +183,13 @@ function previewText($text, $limit = 60) {
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
 $('.editBtn').on('click', function() {
     $('#modal-id').val($(this).data('id'));
     $('#modal-name').val($(this).data('name'));
+    $('#modal-category').val($(this).data('category'));
     $('#modal-product-img-existing').val($(this).data('product_img'));
     $('#modal-ingredients').val($(this).data('ingredients'));
     $('#modal-vitamins').val($(this).data('vitamins'));

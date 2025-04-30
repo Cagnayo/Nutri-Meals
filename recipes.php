@@ -95,12 +95,13 @@
   <div class="card mb-3" style="max-width: 400px;">
   <div class="row g-0">
     <div class="col-md-4 ps-5">
-    <i class="fa-solid fa-fish fa-6x"></i>
+    <a href="view-products.php?category=Pork"><i class="fa-solid fa-fish fa-6x"></i></a>
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> Pork</h1>
+        <h1><a href="category-view.php?category=Pork">Pork</a></h1>
+
         </div>
       </div>
     </div>
@@ -114,7 +115,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> Pork</h1>
+          <h1> fish</h1>
         </div>
       </div>
     </div>
@@ -128,7 +129,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> Pork</h1>
+          <h1> beef</h1>
         </div>
       </div>
     </div>
@@ -142,7 +143,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> Pork</h1>
+          <h1> vegetable</h1>
         </div>
       </div>
     </div>
@@ -156,7 +157,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> Pork</h1>
+          <h1> dessert</h1>
         </div>
       </div>
     </div>
@@ -170,7 +171,7 @@
     <div class="col-md-8">
       <div class="card-body">
         <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> Pork</h1>
+          <h1> fish</h1>
         </div>
       </div>
     </div>
