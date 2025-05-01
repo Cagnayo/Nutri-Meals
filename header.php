@@ -117,7 +117,7 @@ header {
 <header>
   <div class="header-container">
     <div class="logo">
-      <a href="#" class="color-green">Nutri</a> 
+      <a href="index.php" class="color-green">Nutri</a> 
       <a href="index.php" class="color-orange">Meal</a>
     </div>
     <nav>

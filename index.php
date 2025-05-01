@@ -16,8 +16,9 @@
 <!-- Hero Section -->
 <section class="hero-section">
   <div class="hero-text">
-    <h1>Cook Like a Pro with Our <span class="highlight">Easy</span> and <span class="highlight">Tasty</span> Recipes</h1>
-    <p>From quick and easy meals to gourmet delights, we have something for every taste and occasion.</p>
+  <h1>Master Healthy Dishes with Our <span class="highlight">Simple</span> and <span class="highlight">Nutritious</span> Recipes</h1>
+<p>Whether you're learning to cook or exploring healthy eating, find the perfect fruit and vegetable recipes for any skill level or craving.</p>
+
     <a href="#" class="btn btn-success">Explore all Recipes</a>
   </div>
   <div class="hero-image">
@@ -37,8 +38,8 @@
       <div class="card">
         <img src="images/Caldereta.jpg" class="card-img-top" alt="Caldereta">
         <div class="card-body">
-          <h5 class="card-title">Creamy Tomato Basil Soup</h5>
-          <p class="card-text">This comforting soup is made with fresh tomatoes.</p>
+          <h5 class="card-title">Caldereta</h5>
+          <p class="card-text">These tacos are loaded with juicy shrimp marinated in a spicy blend of chili powder</p>
           <a href="#" class="btn btn-light">See Full Details</a>
         </div>
       </div>
@@ -46,7 +47,7 @@
       <div class="card">
         <img src="images/adobong-manok.jpg" class="card-img-top" alt="Adobo">
         <div class="card-body">
-          <h5 class="card-title">Spicy Shrimp Tacos</h5>
+          <h5 class="card-title">Adobong Manok</h5>
           <p class="card-text">These tacos are loaded with juicy shrimp marinated in a spicy blend of chili powder.</p>
           <a href="#" class="btn btn-light">See Full Details</a>
         </div>
@@ -55,7 +56,7 @@
       <div class="card">
         <img src="images/mechado.jpg" class="card-img-top" alt="Mechado">
         <div class="card-body">
-          <h5 class="card-title">Chicken Parmesan</h5>
+          <h5 class="card-title">Mechado</h5>
           <p class="card-text">This classic Italian dish features tender chicken breasts coated in crispy breadcrumbs.</p>
           <a href="#" class="btn btn-light">See Full Details</a>
         </div>
@@ -64,7 +65,7 @@
       <div class="card">
         <img src="images/Bicol-Express.png" class="card-img-top" alt="Bicol Express">
         <div class="card-body">
-          <h5 class="card-title">Chocolate Chip Cookies</h5>
+          <h5 class="card-title">Bicol Express</h5>
           <p class="card-text">These cookies are the perfect balance of chewy and crispy, melted chocolate.</p>
           <a href="#" class="btn btn-light">See Full Details</a>
         </div>
