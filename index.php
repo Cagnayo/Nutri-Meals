@@ -19,7 +19,7 @@
   <h1>Master Healthy Dishes with Our <span class="highlight">Simple</span> and <span class="highlight">Nutritious</span> Recipes</h1>
 <p>Whether you're learning to cook or exploring healthy eating, find the perfect fruit and vegetable recipes for any skill level or craving.</p>
 
-    <a href="#" class="btn btn-success">Explore all Recipes</a>
+    <a href="recipes.php" class="btn btn-success">Explore all Recipes</a>
   </div>
   <div class="hero-image">
     <img src="images/nutri-meal.png" alt="Chef with Pizza">
@@ -75,7 +75,7 @@
 </section>
 <section class="cuisine-slider-section">
   <div class="cuisine-header">
-    <h1>Explore by Cuisine Type</h1>
+    <h1> Explore by Cuisine Type</h1>
     <p>Discover new flavors and cooking techniques with our diverse selection of cuisine types.</p>
   </div>
 

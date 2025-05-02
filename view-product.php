@@ -31,19 +31,32 @@ $stmt->close();
   <link rel="stylesheet" href="style.css?v=1.0" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"/>
   <style>
-    .product-container {
-      max-width: 800px;
-      margin: 40px auto;
-      border: 1px solid #ccc;
-      padding: 25px;
-      border-radius: 10px;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-  </style>
+  .product-container {
+    max-width: 800px;
+    margin: 40px auto;
+    border: 1px solid #ccc;
+    padding: 25px;
+    border-radius: 10px;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  .instruction-steps {
+    padding-left: 20px;
+  }
+  .instruction-steps li {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .instruction-steps li::marker {
+    font-weight: bold;
+  }
+</style>
+
 </head>
 <body>
 
@@ -59,12 +72,21 @@ $stmt->close();
   <p><?= nl2br(htmlspecialchars($row['ingredients'])) ?></p>
 
   <h4>Vitamins</h4>
-  <p><?= nl2br(htmlspecialchars($row['vitamins'])) ?></p>
+  <p><?= nl2br($row['vitamins']) ?></p>
 
-  <?php if (!empty($row['sample_img'])): ?>
-    <h4>Sample Recipe Image</h4>
-    <img src="<?= htmlspecialchars($row['sample_img']) ?>" alt="Sample Image" class="img-fluid my-3">
-  <?php endif; ?>
+  <?php if (!empty($row['instruction'])): ?>
+  <h4>Instructions</h4>
+  <ol class="instruction-steps">
+    <?php
+      $steps = preg_split('/\r\n|\r|\n/', $row['instruction']);
+      foreach ($steps as $step) {
+          if (trim($step) !== '') {
+              echo '<li>' . htmlspecialchars($step) . '</li>';
+          }
+      }
+    ?>
+  </ol>
+<?php endif; ?>
 
   <a href="admin.php" class="btn btn-secondary mt-3">Back to Admin Panel</a>
 </div>
