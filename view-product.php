@@ -34,10 +34,6 @@ $stmt->close();
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
-    body {
-      font-family: Poppins, sans-serif;
-    }
-
     .instruction-steps {
       padding-left: 0;
       list-style-position: inside;
@@ -46,7 +42,7 @@ $stmt->close();
     .instruction-steps li {
       margin-bottom: 12px;
       font-size: 20px;
-      line-height: 1.4;
+      line-height: 1.8;
     }
 
     .instruction-steps li::marker {
@@ -109,6 +105,13 @@ $stmt->close();
       /* Your active line color */
       bottom: 0;
       left: 0;
+    }
+
+    #instructions {
+      max-height: 650px;
+      /* Adjust height as needed */
+      overflow-y: auto;
+      padding-right: 10px;
     }
 
     #vitamins p {
@@ -185,7 +188,7 @@ $stmt->close();
               <div class="tab-nav w-100 d-flex justify-content-around">
                 <button class="tab-button active" data-tab="ingredients">INGREDIENTS</button>
                 <button class="tab-button" data-tab="instructions">INSTRUCTION</button>
-                <button class="tab-button" data-tab="vitamins">VITAMINS</button>
+                <button class="tab-button" data-tab="vitamins">NUTRIENT CONTENT</button>
 
               </div>
             </div>

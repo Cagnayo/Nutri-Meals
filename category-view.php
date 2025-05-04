@@ -1,16 +1,32 @@
 <?php
 include 'connection.php';
 
-$category = isset($_GET['category']) ? $_GET['category'] : '';
-if (!$category) {
-    echo "No category selected.";
-    exit();
-}
+        $category = isset($_GET['category']) ? $_GET['category'] : '';
+        $id = isset($_GET['id']) ? $_GET['id'] : '';
+        $name = isset($_GET['name']) ? $_GET['name'] : '';
+        $pageTitle = "All Recipes";
 
-$stmt = $con->prepare("SELECT * FROM `admin-series` WHERE category = ?");
-$stmt->bind_param("s", $category);
-$stmt->execute();
+        if ($id) {
+            $stmt = $con->prepare("SELECT * FROM `admin-series` WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            $pageTitle = "Recipe Details";
+        } elseif ($name) {
+            $nameParam = "%$name%";
+            $stmt = $con->prepare("SELECT * FROM `admin-series` WHERE product_name LIKE ?");
+            $stmt->bind_param("s", $nameParam);
+            $pageTitle = "Search Results for " . htmlspecialchars($name);
+        } elseif ($category) {
+            $stmt = $con->prepare("SELECT * FROM `admin-series` WHERE category = ?");
+            $stmt->bind_param("s", $category);
+            $pageTitle = htmlspecialchars($category) . " Recipes";
+        } else {
+            $stmt = $con->prepare("SELECT * FROM `admin-series`");
+        }
+
+
+        $stmt->execute();
 $result = $stmt->get_result();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

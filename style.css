@@ -1,21 +1,22 @@
 @font-face {
   font-family: Poppins;
-  src: url(Poppins/Poppins-Black.ttf) format('truetype'),
-       url(Poppins/Poppins-BlackItalic.ttf) format('truetype'),
-       url(Poppins/Poppins-Bold.ttf) format('truetype'),
-       url(Poppins/Poppins-BoldItalic.ttf) format('truetype'),
-       url(Poppins/Poppins-ExtraBold.ttf) format('truetype'),
-       url(Poppins/Poppins-ExtraBoldItalic.ttf) format('truetype'),
-       url(Poppins/Poppins-ExtraLight.ttf) format('truetype'),
-       url(Poppins/Poppins-ExtraLightItalic.ttf) format('truetype'),
-       url(Poppins/Poppins-Italic.ttf) format('truetype'),
-       url(Poppins/Poppins-Light.ttf) format('truetype'),
-       url(Poppins/Poppins-LightItalic.ttf) format('truetype'),
-       url(Poppins/Poppins-Medium.ttf) format('truetype'),
-       url(Poppins/Poppins-MediumItalic.ttf) format('truetype'),
-       url(Poppins/Poppins-Regular.ttf) format('truetype'),
-       url(Poppins/Poppins-SemiBold.ttf) format('truetype'),
-       url(Poppins/Poppins-SemiBoldItalic.ttf) format('truetype');
+  src: url(Poppins/Poppins-Bold.ttf) format('truetype');
+        font-weight: bold;
+        font-style: normal;
+}
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(Poppins/Poppins-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: Poppins-Light;
+  src: url(Poppins/Poppins-Light.ttf) format('truetype');
+  font-weight: normal;
+  font-weight: bold;
+  font-style: normal;
 }
 /* General Reset */
 * {
@@ -25,7 +26,7 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+font-family: poppins, sans-serif;
 }
 
 /* Header */
@@ -117,8 +118,32 @@ header {
 .hero-text p {
   font-size: 18px;
   margin-bottom: 30px;
+  font-family: poppins-light, sans-serif;
+}
+.hero-text a{
+font-family: poppins-regular;
+}
+.hero-text button:hover {
+  background-color: white;
+  border: 1px solid green;
+  color: green
+}
+.hero-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
 }
 
+.hero-section {
+  position: relative;
+}
 .hero-text .highlight {
   color: #ed6d23;
 }
@@ -137,7 +162,7 @@ header {
   background-color: #fffafa; 
   padding: 80px 8%;
   text-align: center;
-  height: 90vh;
+  height: 100vh;
 }
 
 .popular-recipes h1 {
@@ -145,12 +170,17 @@ header {
   font-weight: bold;
   margin-bottom: 15px;
   color: green;
+  font-family: poppins, sans-serif;
 }
 
 .popular-recipes p {
   font-size: 18px;
   margin-bottom: 50px;
   color: #555;
+  font-family: poppins-light;
+}
+.popular-section {
+  position: relative;
 }
 
 .container-card {
@@ -192,12 +222,14 @@ header {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  font-family: poppins, sans-serif;
 }
 
 .card-text {
   font-size: 16px;
   color: #666;
   margin-bottom: 20px;
+  font-family: poppins-light, sans-serif;
 }
 
 .btn-light {
@@ -211,10 +243,9 @@ header {
   transition: all 0.3s ease;
 
 }
-.cardd-body .a{
-  color: orange;
-  font-size: 500px;
-
+.card .card-body .a{
+  color: red;
+  font-family: poppins-regular, sans-serif;
 }
 .card-body .btn-light:hover{
 background-color: #ed6d23;
