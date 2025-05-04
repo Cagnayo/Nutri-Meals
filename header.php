@@ -12,7 +12,6 @@
 <style>
 /* --- Your Original CSS --- */
 header {
-  position: sticky;
   top: 0;
   width: 100%;
   padding: 20px 50px;
