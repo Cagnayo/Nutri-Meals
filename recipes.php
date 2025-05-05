@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +19,8 @@
     }
 
     .category-item {
-      background-color: #ffeb3b; /* yellow */
+      background-color: #ffeb3b;
+      /* yellow */
       border-radius: 50%;
       width: 120px;
       height: 120px;
@@ -28,7 +30,7 @@
       margin: auto;
       transition: all 0.3s ease;
     }
-  
+
     .category-item:hover {
       background-color: #ffd600;
       transform: scale(1.05);
@@ -40,8 +42,8 @@
       font-size: 16px;
     }
 
-    
-  
+
+
     .swiper {
       width: 1400px;
       height: 300px;
@@ -63,6 +65,33 @@
       height: 100%;
       object-fit: cover;
     }
+
+    .card.mb-3 a {
+      text-decoration: none;
+      color: inherit;
+
+    }
+
+    .card.mb-3 a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .col-md-4.ps-5 i {
+      color: green;
+      font-size: 4.7rem;
+      transition: transform 0.3s ease;
+      padding-top: 10px;
+
+    }
+
+    .col-md-4.ps-5 i:hover {
+      transform: scale(1.2);
+      color: #ed6d23;
+    }
+
+
+
     /* Responsive spacing */
     @media (max-width: 768px) {
       .section-categories {
@@ -73,116 +102,135 @@
 </head>
 
 <body>
-<?php include('header.php'); ?>
+  <?php include('header.php'); ?>
 
-<section class="section-categories">
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-    <div class="swiper-slide">Slide 4</div>
-    <div class="swiper-slide">Slide 5</div>
-  </div>
-  <div class="swiper-pagination"></div>
-  </div>
-  </div>
-  <div class="categories text-center">
-  <h1>Categories</h1>
-  </div>
-  <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3 column-gap-5  row-gap-5 d-flex justify-content-center">
-  <div class="card mb-3" style="max-width: 400px;">
-  <div class="row g-0">
-    <div class="col-md-4 ps-5">
-    <a href="view-products.php?category=Pork"><i class="fa-solid fa-fish fa-6x"></i></a>
+  <section class="section-categories">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"> Slider 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <div class="card-title d-flex justify-content-center align-item-center"> 
-        <h1><a href="category-view.php?category=Pork">Pork</a></h1>
+    </div>
+    <div class="categories text-center">
+      <h1>Categories</h1>
+    </div>
+    <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3 column-gap-5  row-gap-5 d-flex justify-content-center">
+      <div class="card mb-3" style="max-width: 400px;">
+        <div class="row g-0">
+          <div class="col-md-4 ps-5">
+            <a href="category-view.php?category=Pork">
+              <i class="fa-solid fa-bacon fa-6x"></i>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body ">
+              <div class="card-title d-flex justify-content-center align-item-center">
+                <h1><a href="category-view.php?category=Pork">Pork</a></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 400px;">
+        <div class="row g-0">
+          <div class="col-md-4 ps-5">
+            <a href="category-view.php?category=Beef">
+              <i class="fa-solid fa-cow fa-5x"></i>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="card-title d-flex justify-content-center align-item-center">
+                <h1><a href="category-view.php?category=Beef">Beef</a></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 400px;">
+        <div class="row g-0">
+          <div class="col-md-4 ps-5">
+            <a href="category-view.php?category=Chicken">
+              <i class="fa-solid fa-drumstick-bite fa-6x"></i>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="card-title d-flex justify-content-center align-item-center">
+                <a href="category-view.php?category=Chicken">
+                  <h1> Chicken</h1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 400px;">
+        <div class="row g-0">
+          <div class="col-md-4 ps-5">
+            <a href="category-view.php?category=Vegetable">
+              <i class="fa-solid fa-carrot fa-6x"></i>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="card-title d-flex justify-content-center align-item-center">
+                <a href="category-view.php?category=Vegetable">
+                  <h1> Vegetable</h1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 400px;">
+        <div class="row g-0">
+          <div class="col-md-4 ps-5">
+            <a href="category-view.php?category=Dessert">
+              <i class="fa-solid fa-cookie fa-6x"></i>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="card-title d-flex justify-content-center align-item-center">
+                <a href="category-view.php?category=Dessert">
+                  <h1> Dessert</h1>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card mb-3" style="max-width: 400px;">
+        <div class="row g-0">
+          <div class="col-md-4 ps-5">
+            <a href="category-view.php?category=Fish">
+              <i class="fa-solid fa-fish fa-6x"></i>
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <div class="card-title d-flex justify-content-center align-item-center">
+                <a href="category-view.php?category=Fish">
+                  <h1> Fish</h1>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card mb-3" style="max-width: 400px;">
-  <div class="row g-0">
-    <div class="col-md-4 ps-5">
-    <i class="fa-solid fa-fish fa-6x"></i>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> fish</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card mb-3" style="max-width: 400px;">
-  <div class="row g-0">
-    <div class="col-md-4 ps-5">
-    <i class="fa-solid fa-fish fa-6x"></i>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> beef</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card mb-3" style="max-width: 400px;">
-  <div class="row g-0">
-    <div class="col-md-4 ps-5">
-    <i class="fa-solid fa-fish fa-6x"></i>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> vegetable</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card mb-3" style="max-width: 400px;">
-  <div class="row g-0">
-    <div class="col-md-4 ps-5">
-    <i class="fa-solid fa-fish fa-6x"></i>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> dessert</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="card mb-3" style="max-width: 400px;">
-  <div class="row g-0">
-    <div class="col-md-4 ps-5">
-    <i class="fa-solid fa-fish fa-6x"></i>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <div class="card-title d-flex justify-content-center align-item-center"> 
-          <h1> fish</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 
-
-</section>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
-<script>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
     var swiper = new Swiper(".mySwiper", {
       spaceBetween: 30,
       centeredSlides: true,
