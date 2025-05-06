@@ -46,8 +46,10 @@
 
     .swiper {
       width: 1400px;
-      height: 300px;
-      border: solid 1px black;
+      height: 380px;
+      -webkit-box-shadow: 0.5px 20px 28px 3.5px #ddd;
+      -moz-box-shadow: 0.5px 20px 28px 3.5px #ddd;
+      box-shadow: 0.5px 20px 28px 3.5px #ddd;
     }
 
     .swiper-slide {
@@ -107,17 +109,15 @@
   <section class="section-categories">
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"> Slider 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide"> <img src="images/promo 1.jpg" alt="promo 1"> </div>
+        <div class="swiper-slide"><img src="images/promo 2.jpg" alt="promo 1"> </div>
+        <div class="swiper-slide"><img src="images/promo 3.png" alt="promo 1"> </div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
     </div>
-    <div class="categories text-center">
-      <h1>Categories</h1>
+    <div class="categories text-center" style="color: #ed6d23;">
+      <h1><b>CATEGORIES</b></h1>
     </div>
     <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3 column-gap-5  row-gap-5 d-flex justify-content-center">
       <div class="card mb-3" style="max-width: 400px;">
@@ -218,7 +218,7 @@
               <div class="card-title d-flex justify-content-center align-item-center">
                 <a href="category-view.php?category=Fish">
                   <h1> Fish</h1>
-                  </a>
+                </a>
               </div>
             </div>
           </div>
