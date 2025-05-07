@@ -20,7 +20,9 @@
         <h1>Master Healthy Dishes with Our <span class="highlight">Simple</span> and <span class="highlight">Nutritious</span> Recipes</h1>
         <p>Whether you're learning to cook or exploring healthy eating, find the perfect fruit and vegetable recipes for any skill level or craving.</p>
 
-        <button class="btn btn-success" id="exploreBtn">Explore all Recipes</button>
+        <button class="btn btn-success" id="exploreBtn">
+          <h5 class="pt-1"><b>EXPLORE RECIPES</b></h5>
+        </button>
       </div>
       <div class="hero-image">
         <img src="images/nutri-meal.png" alt="Chef with Pizza">
