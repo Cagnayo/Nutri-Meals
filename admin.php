@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $vitamins = $_POST['vitamins'];
     $category = $_POST['category'];
     $instruction = $_POST['instruction'];
+    $description = $_POST['description'];
 
     $product_img_path = '';
     if (isset($_FILES['product_img']) && $_FILES['product_img']['error'] === UPLOAD_ERR_OK) {
@@ -42,13 +43,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($id) {
-        $sql = "UPDATE `admin-series` SET product_name=?, product_img=?, ingredients=?, vitamins=?, category=?, instruction=? WHERE id=?";
+        $sql = "UPDATE `admin-series` SET product_name=?, product_img=?, ingredients=?, vitamins=?, category=?, instruction=?, description=? WHERE id=?";
         $stmt = $con->prepare($sql);
-        $stmt->bind_param("ssssssi", $name, $product_img_path, $ingredients, $vitamins, $category, $instruction, $id);
+        $stmt->bind_param("sssssssi", $name, $product_img_path, $ingredients, $vitamins, $category, $instruction, $description, $id);
     } else {
-        $sql = "INSERT INTO `admin-series` (product_name, product_img, ingredients, vitamins, category, instruction) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `admin-series` (product_name, product_img, ingredients, vitamins, category, instruction, description) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $stmt = $con->prepare($sql);
-        $stmt->bind_param("ssssss", $name, $product_img_path, $ingredients, $vitamins, $category, $instruction);
+        $stmt->bind_param("sssssss", $name, $product_img_path, $ingredients, $vitamins, $category, $instruction, $description);
     }
 
     $stmt->execute();
@@ -108,10 +109,12 @@ $result = $con->query("SELECT * FROM `admin-series`");
                 <tr>
                     <th>Name</th>
                     <th>Category</th>
+                    <th>Description</th>
                     <th>Ingredients</th>
                     <th>Vitamins</th>
                     <th>Instructions</th>
                     <th>Actions</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -119,6 +122,7 @@ $result = $con->query("SELECT * FROM `admin-series`");
                     <tr>
                         <td><?= htmlspecialchars($row['product_name']) ?></td>
                         <td><?= htmlspecialchars($row['category']) ?></td>
+                        <td><span class="truncate-text"><?= htmlspecialchars($row['description']) ?></span></td>
                         <td><span class="truncate-text"><?= htmlspecialchars($row['ingredients']) ?></span></td>
                         <td><span class="truncate-text"><?= htmlspecialchars_decode($row['instruction']) ?></span></td>
                         <td><span class="truncate-text"><?= htmlspecialchars($row['vitamins']) ?></span></td>
@@ -134,9 +138,11 @@ $result = $con->query("SELECT * FROM `admin-series`");
                                     data-ingredients="<?= htmlspecialchars($row['ingredients']) ?>"
                                     data-vitamins="<?= htmlspecialchars($row['vitamins']) ?>"
                                     data-category="<?= htmlspecialchars($row['category']) ?>"
-                                    data-instruction="<?= htmlspecialchars($row['instruction']) ?>">
+                                    data-instruction="<?= htmlspecialchars($row['instruction']) ?>"
+                                    data-description="<?= htmlspecialchars($row['description']) ?>">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </button>
+
                                 <a href="?delete=<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item?');">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </a>
@@ -183,7 +189,10 @@ $result = $con->query("SELECT * FROM `admin-series`");
                             <label>Product Image</label>
                             <input type="file" name="product_img" id="modal-product-img" class="form-control">
                         </div>
-
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea name="description" class="form-control" id="modal-description" rows="3"></textarea>
+                        </div>
                         <div class="form-group">
                             <label>Ingredients</label>
                             <textarea name="ingredients" id="modal-ingredients" class="form-control" required></textarea>
@@ -245,6 +254,8 @@ $result = $con->query("SELECT * FROM `admin-series`");
             tinymce.get('modal-vitamins').setContent($(this).data('vitamins'));
             $('#modal-instruction').val($(this).data('instruction'));
             $('#dataModal').modal('show');
+            $('#modal-description').val($(this).data('description'));
+
         });
     </script>
 </body>
