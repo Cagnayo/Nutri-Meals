@@ -21,7 +21,7 @@
         <p>Whether you're learning to cook or exploring healthy eating, find the perfect fruit and vegetable recipes for any skill level or craving.</p>
 
         <button class="btn btn-success" id="exploreBtn">
-          <h5 class="pt-1"><b>EXPLORE RECIPES</b></h5>
+          <h5 class="pt-2" style="font-family:poppins-regular"><b>Explore Recipes</b></h5>
         </button>
       </div>
       <div class="hero-image">

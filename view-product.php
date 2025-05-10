@@ -30,6 +30,7 @@ $stmt->close();
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($row['product_name']) ?> </title>
   <link rel="stylesheet" href="style.css?v=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -78,7 +79,7 @@ $stmt->close();
     .btn-warning h6 {
       color: white;
       margin-top: 4px;
-      padding: 2px 2px 1px 2px;
+      padding: 3px 2px 1px 2px;
       font-size: 1rem;
       font-family: "poppins-regular", sans-serif;
 
@@ -133,6 +134,101 @@ $stmt->close();
     .lower-card {
       background-color: #fffafa;
 
+    }
+
+    #ingredientsHeader h1 {
+      padding-top: 30px;
+      font-size: 4rem;
+      font-family: "poppins";
+      color: green;
+      justify-content: center;
+      display: flex;
+      font-weight: 700;
+    }
+
+    #ingredientsHeader p {
+      font-size: 1.5rem;
+      font-family: "poppins-regular";
+      justify-content: center;
+      display: flex;
+    }
+
+    .ingredients {
+      justify-content: center;
+      display: flex;
+    }
+
+    .ingredients-list {
+      padding-left: 1rem;
+      font-size: 1.1rem;
+      column-gap: 2rem;
+      display: inline-block;
+      justify-content: space-between;
+      font-family: "poppins-light";
+      line-height: 2.3rem;
+    }
+
+    .ingredients-list.two-columns {
+      columns: 2;
+    }
+
+    #instructionsHeader h1 {
+      padding-top: 30px;
+      font-size: 4rem;
+      font-family: "poppins";
+      color: green;
+      justify-content: center;
+      display: flex;
+      font-weight: 700;
+
+    }
+
+    #instructionsHeader p {
+      font-size: 1.5rem;
+      font-family: "poppins-regular";
+      justify-content: center;
+      display: flex;
+    }
+
+    #instructions .instruction-steps {
+      padding-bottom: 30px;
+      line-height: 2rem;
+      font-size: 20px;
+      font-family: "poppins-light";
+    }
+
+    .instruction-steps {
+      list-style: none;
+      counter-reset: step;
+      padding-left: 5;
+
+    }
+
+    .instruction-steps li {
+      counter-increment: step;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 45px;
+      padding-right: 45px;
+
+
+    }
+
+    .instruction-steps li::before {
+      content: counter(step) ".";
+      font-weight: 700;
+      /* explicitly bold */
+      font-family: 'Poppins', sans-serif;
+      /* Make sure the bold weight is recognized */
+      position: absolute;
+      left: 0;
+    }
+
+    .ingredients-button.active,
+    .instruction-button.active {
+      background-color: grey !important;
+      /* or any darker highlight */
+      border-color: grey !important;
     }
   </style>
 
@@ -198,36 +294,51 @@ $stmt->close();
     <div class=" lower-card container-lg">
       <div class="card mb-3 ">
         <div class="ingredients-tab ">
-          <div class="ingredients-title">
-            <div id="ingredientsHeader">
-              <h1> INGREDIENTS</h1>
-              <p>"These are the ingredients you'll need for this recipe. Make sure to prep them before starting!"</p>
-            </div>
-            <div class="tab-panel " id="ingredients" style="display: block;">
-              <p><?= nl2br(htmlspecialchars($row['ingredients'])) ?></p>
+          <div class="ingredients-tab">
+            <div class="ingredients-title">
+              <div id="ingredientsHeader">
+                <h1>Ingredients</h1>
+                <p>"These are the ingredients you'll need for this recipe. Make sure to prep them before starting!"</p>
+              </div>
+              <div class="tab-panel" id="ingredients" style="display: block;">
+                <?php
+                $ingredients = preg_split('/\r\n|\r|\n/', $row['ingredients']);
+                $ingredients = array_filter(array_map('trim', $ingredients)); // clean up empty lines
+                ?>
+                <div class="ingredients">
+                  <ul class="ingredients-list <?= count($ingredients) >= 12 ? 'two-columns' : '' ?>">
+                    <?php foreach ($ingredients as $item): ?>
+                      <li><?= htmlspecialchars($item) ?></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
+
+          <div class="instruction-tab">
+            <div id="instructionsHeader" style="display: none;">
+              <h1> Instructions</h1>
+              <p>"Follow these simple steps to make your dish come together perfectly!"</p>
+            </div>
+            <?php if (!empty($row['instruction'])): ?>
+              <div class="tab-panel" id="instructions" style="display: none;">
+                <ol class="instruction-steps">
+                  <?php
+                  $steps = preg_split('/\r\n|\r|\n/', $row['instruction']);
+                  foreach ($steps as $step) {
+                    if (trim($step) !== '') {
+                      echo '<li>' . htmlspecialchars($step) . '</li>';
+                    }
+                  }
+                  ?>
+                </ol>
+              </div>
+            <?php endif; ?>
+          </div>
+
         </div>
-  <div class="instruction-tab">
-          <h1> INSTRUCTIONS</h1>
-        <p> "These are the ingredients you'll need for this recipe. Make sure to prep them before starting!"</p>
-        <?php if (!empty($row['instruction'])): ?>
-          <div class="tab-panel" id="instructions" style="display: none;">
-            <ol class="instruction-steps">
-              <?php
-              $steps = preg_split('/\r\n|\r|\n/', $row['instruction']);
-              foreach ($steps as $step) {
-                if (trim($step) !== '') {
-                  echo '<li>' . htmlspecialchars($step) . '</li>';
-                }
-              }
-              ?>
-            </ol>
-          </div>
-        <?php endif; ?>
-  </div>
       </div>
-    </div>
   </section>
 
 </html>
@@ -237,18 +348,33 @@ $stmt->close();
   const ingredientsPanel = document.getElementById("ingredients");
   const instructionsPanel = document.getElementById("instructions");
   const ingredientsHeader = document.getElementById("ingredientsHeader");
+  const instructionsHeader = document.getElementById("instructionsHeader");
+
+  function activateButton(button) {
+    ingredientsBtn.classList.remove("active");
+    instructionsBtn.classList.remove("active");
+    button.classList.add("active");
+  }
 
   ingredientsBtn.addEventListener("click", function() {
+    activateButton(ingredientsBtn);
     ingredientsPanel.style.display = "block";
-    if (instructionsPanel) instructionsPanel.style.display = "none";
-    if (ingredientsHeader) ingredientsHeader.style.display = "block";
+    instructionsPanel.style.display = "none";
+    ingredientsHeader.style.display = "block";
+    instructionsHeader.style.display = "none";
   });
 
   instructionsBtn.addEventListener("click", function() {
-    if (instructionsPanel) instructionsPanel.style.display = "block";
+    activateButton(instructionsBtn);
+    instructionsPanel.style.display = "block";
     ingredientsPanel.style.display = "none";
-    if (ingredientsHeader) ingredientsHeader.style.display = "none";
+    instructionsHeader.style.display = "block";
+    ingredientsHeader.style.display = "none";
   });
+
+  // Optionally activate "Ingredients" by default
+  activateButton(ingredientsBtn);
 </script>
+
 
 </body>

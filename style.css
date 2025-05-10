@@ -128,6 +128,7 @@ font-family: poppins-regular;
   border: 1px solid green;
   color: green
 }
+
 .hero-loader {
   position: absolute;
   top: 0;
@@ -345,7 +346,6 @@ color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 
 
 /* Responsive */

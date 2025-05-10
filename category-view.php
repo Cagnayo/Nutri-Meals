@@ -59,6 +59,8 @@ $result = $stmt->get_result();
         font-weight: bold;
         color: #ed6d23;
         font-size: 3.5rem;
+     font-family: "poppins" ;
+
     }
 
     .container.mt-5 button i {
@@ -72,6 +74,8 @@ $result = $stmt->get_result();
     .container.mt-5 .btn-outline-success:hover i {
         color: white;
     }
+
+    
 </style>
 
 <body>

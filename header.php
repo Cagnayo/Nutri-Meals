@@ -9,9 +9,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-  .header-body {
-    font-family: Poppins-Regular, sans-serif;
-  }
 
   header {
     position: sticky;
@@ -32,6 +29,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    font-family: "poppins-light";
   }
 
   .header-container a.color-green {
