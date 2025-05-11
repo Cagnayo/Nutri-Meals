@@ -9,7 +9,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <style>
-
   header {
     position: sticky;
     top: 0;
@@ -102,6 +101,15 @@
     margin-right: 130px;
   }
 
+  #search-results {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .search-result-item:hover {
+    background-color: #f0f0f0;
+  }
+
   /* RESPONSIVENESS */
   @media (max-width: 991px) {
 
@@ -142,63 +150,108 @@
 </style>
 
 <body>
-    <!-- Desktop Navbar (your design) -->
-    <header>
-      <div class="header-container">
-        <div class="logo">
-          <a href="index.php" class="color-green">Nutri</a>
-          <a href="index.php" class="color-orange">Meal</a>
-        </div>
-        <nav>
-          <ul class="nav-links ">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="recipes.php">All Recipes</a></li>
-            <li><a href="index.php">About</a></li>
-          </ul>
-        </nav>
-        <form class="search-form" role="search">
-          <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
-        </form>
+  <!-- Desktop Navbar (your design) -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.php" class="color-green">Nutri</a>
+        <a href="index.php" class="color-orange">Meal</a>
       </div>
-    </header>
+      <nav>
+        <ul class="nav-links ">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="recipes.php">All Recipes</a></li>
+          <li><a href="index.php">About</a></li>
+        </ul>
+      </nav>
+      <form class="search-form" role="search" onsubmit="return false;">
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-input" />
+        <div id="search-results" class="position-absolute bg-white border rounded w-100 mt-1 p-2" style="z-index: 1000;"></div>
+      </form>
+    </div>
+  </header>
 
-    <!-- Mobile Navbar with Offcanvas (bootstrap) -->
-    <nav class="navbar bg-body-tertiary fixed-top d-lg-none">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <span class="color-green">Nutri</span><span class="color-orange">Meal</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Nutri-Meal</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="recipes.php">All Recipes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="course.php">Course</a>
-              </li>
-            </ul>
-            <form class="d-flex mt-3" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
+  <!-- Mobile Navbar with Offcanvas (bootstrap) -->
+  <nav class="navbar bg-body-tertiary fixed-top d-lg-none">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <span class="color-green">Nutri</span><span class="color-orange">Meal</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Nutri-Meal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="recipes.php">All Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="course.php">Course</a>
+            </li>
+          </ul>
+          <form class="d-flex mt-3" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('search-input');
+      const resultsContainer = document.getElementById('search-results');
+
+      searchInput.addEventListener('input', async function() {
+        const query = this.value.trim();
+        resultsContainer.innerHTML = '';
+
+        if (query.length === 0) return;
+
+        try {
+          const response = await fetch(`search.php?q=${encodeURIComponent(query)}`);
+          const results = await response.json();
+
+          if (results.length === 0) {
+            resultsContainer.innerHTML = '<div class="p-2 text-muted">No results found.</div>';
+            return;
+          }
+
+          results.forEach(product => {
+            const item = document.createElement('div');
+            item.textContent = product.name;
+            item.classList.add('p-2', 'search-result-item');
+            item.style.cursor = 'pointer';
+            item.addEventListener('click', () => {
+              window.location.href = `product.php?id=${product.id}`;
+            });
+            resultsContainer.appendChild(item);
+          });
+        } catch (error) {
+          console.error('Search failed:', error);
+        }
+      });
+
+      // Hide results if clicked outside
+      document.addEventListener('click', (e) => {
+        if (!resultsContainer.contains(e.target) && e.target !== searchInput) {
+          resultsContainer.innerHTML = '';
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>

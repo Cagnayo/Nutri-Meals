@@ -83,8 +83,10 @@ $result = $con->query("SELECT * FROM `admin-series`");
         margin-right: 5px;
     }
 
-    .btn-group-sm a button {
-        width: 30px;
+    .btn-group-sm {
+
+     display: flex;
+     align-self: center;
     }
 
     .top-header {
@@ -128,7 +130,7 @@ $result = $con->query("SELECT * FROM `admin-series`");
                         <td><span class="truncate-text"><?= htmlspecialchars($row['vitamins']) ?></span></td>
                         <td>
                             <div class="btn-group btn-group-sm">
-                                <a href="view-product.php?id=<?= $row['id'] ?>" class="btn btn-info">
+                                <a href="admin-view.php?id=<?= $row['id'] ?>" class="btn btn-info">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
                                 <button class="btn btn-warning editBtn"
