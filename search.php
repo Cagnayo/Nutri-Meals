@@ -1,41 +1,34 @@
 <?php
-$localhost = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'nutri-meals';
+$conn = new mysqli("localhost", "root", "", "nutri_meals"); // Update if your credentials differ
 
-
-$conn = new mysqli($localhost, $username, $password, $database);
 if ($conn->connect_error) {
-    http_response_code(500);
-    echo json_encode(["error" => "Database connection failed"]);
-    exit;
+    die("Connection failed: " . $conn->connect_error);
 }
 
-$query = strtolower(trim($_GET['q'] ?? ''));
-if (empty($query)) {
+header('Content-Type: application/json');
+
+$query = isset($_GET['q']) ? $conn->real_escape_string($_GET['q']) : '';
+
+if ($query === '') {
     echo json_encode([]);
     exit;
 }
 
-// Assuming the table name is 'admin_series' and column is 'product_name'
-$stmt = $conn->prepare("SELECT id, product_name FROM admin_series WHERE product_name LIKE CONCAT('%', ?, '%') LIMIT 10");
-$stmt->bind_param("s", $query);
-$stmt->execute();
-$result = $stmt->get_result();
+// Query to match product name
+$sql = "SELECT id, product_name, image FROM admin_series WHERE product_name LIKE '%$query%' LIMIT 5";
+$result = $conn->query($sql);
 
 $results = [];
-while ($row = $result->fetch_assoc()) {
-    $results[] = [
-        'id' => $row['id'],
-        'name' => $row['product_name']
-    ];
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $results[] = [
+            'id' => $row['id'],
+            'name' => $row['product_name'],
+            'image' => $row['image'] // adjust path if needed
+        ];
+    }
 }
 
 echo json_encode($results);
-
-$stmt->close();
 $conn->close();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-header('Content-Type: application/json');

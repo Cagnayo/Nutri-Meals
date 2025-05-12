@@ -95,7 +95,7 @@ $result = $con->query("SELECT * FROM `admin-series`");
 </style>
 
 <body>
-    <div class="container">
+    <div class="container-fluid" style="margin: 0px 15% 0px 15%;">
         <div class="top-header">
             <h2> Manage Fruits & Vegetables</h2>
             <button class="btn btn-success" data-toggle="modal" data-target="#dataModal">

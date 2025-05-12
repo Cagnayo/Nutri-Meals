@@ -209,46 +209,31 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const searchInput = document.getElementById('search-input');
-      const resultsContainer = document.getElementById('search-results');
+    results.forEach(product => {
+      const item = document.createElement('div');
+      item.classList.add('d-flex', 'align-items-center', 'p-2', 'search-result-item');
+      item.style.cursor = 'pointer';
 
-      searchInput.addEventListener('input', async function() {
-        const query = this.value.trim();
-        resultsContainer.innerHTML = '';
+      item.innerHTML = `
+    <img src="${product.image}" alt="${product.name}" style="width: 50px; height: auto; margin-right: 10px;">
+    <div>
+      <div style="font-weight: bold;">${product.name}</div>
+      <div class="text-muted">₱${product.price}</div>
+    </div>
+  `;
 
-        if (query.length === 0) return;
-
-        try {
-          const response = await fetch(`search.php?q=${encodeURIComponent(query)}`);
-          const results = await response.json();
-
-          if (results.length === 0) {
-            resultsContainer.innerHTML = '<div class="p-2 text-muted">No results found.</div>';
-            return;
-          }
-
-          results.forEach(product => {
-            const item = document.createElement('div');
-            item.textContent = product.name;
-            item.classList.add('p-2', 'search-result-item');
-            item.style.cursor = 'pointer';
-            item.addEventListener('click', () => {
-              window.location.href = `product.php?id=${product.id}`;
-            });
-            resultsContainer.appendChild(item);
-          });
-        } catch (error) {
-          console.error('Search failed:', error);
-        }
+      item.addEventListener('click', () => {
+        window.location.href = `view-product.php?id=${product.id}`;
       });
 
-      // Hide results if clicked outside
-      document.addEventListener('click', (e) => {
-        if (!resultsContainer.contains(e.target) && e.target !== searchInput) {
-          resultsContainer.innerHTML = '';
-        }
-      });
+      resultsContainer.appendChild(item);
+    });
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && resultsContainer.firstChild) {
+        e.preventDefault(); // stop form from submitting
+        const firstResult = resultsContainer.firstChild;
+        firstResult.click(); // simulate click on first result
+      }
     });
   </script>
 
