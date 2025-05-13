@@ -165,7 +165,7 @@
         </ul>
       </nav>
       <form class="search-form" role="search" onsubmit="return false;">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-input" />
+        <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search-input"  autocomplete="off"/>
         <div id="search-results" class="position-absolute bg-white border rounded w-100 mt-1 p-2" style="z-index: 1000;"></div>
       </form>
     </div>

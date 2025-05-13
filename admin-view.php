@@ -1,7 +1,24 @@
 <?php
 include('connection.php');
+                        if (!isset($_GET['id'])) {
+                            echo "No product ID provided.";
+                            exit();
+                        }
 
-?>
+                        $id = intval($_GET['id']);
+                        $stmt = $con->prepare("SELECT * FROM `admin-series` WHERE id = ?");
+                        $stmt->bind_param("i", $id);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        if ($result->num_rows === 0) {
+                            echo "Product not found.";
+                            exit();
+                        }
+
+                        $row = $result->fetch_assoc();
+                        $stmt->close();
+                        ?>
 
 <!DOCTYPE html>
 <html lang="en">
