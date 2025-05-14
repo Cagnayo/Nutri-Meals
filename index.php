@@ -49,7 +49,7 @@
             <img src="images/Caldereta.jpg" class="card-img-top" alt="Caldereta">
             <div class="card-body">
               <h5 class="card-title">Caldereta</h5>
-              <p class="card-text">These tacos are loaded with juicy shrimp marinated in a spicy blend of chili powder</p>
+              <p class="card-text">There’s something about the flavor and texture combination of caldereta </p>
               <a href="view-product.php?id=1" class="btn btn-light">See Full Details</a>
             </div>
           </div>
@@ -58,17 +58,17 @@
             <img src="images/adobong-manok.jpg" class="card-img-top" alt="Adobo">
             <div class="card-body">
               <h5 class="card-title">Adobong Manok</h5>
-              <p class="card-text">These tacos are loaded with juicy shrimp marinated in a spicy blend of chili powder.</p>
-              <a href="#" class="btn btn-light">See Full Details</a>
+              <p class="card-text">Filipino fried chicken is a simple fried chicken version use of basic ingredients.</p>
+              <a href="view-product.php?id=19" class="btn btn-light">See Full Details</a>
             </div>
           </div>
 
           <div class="card">
-            <img src="images/mechado.jpg" class="card-img-top" alt="Mechado">
+            <img src="images/nilagang-baka.webp" class="card-img-top" alt="Mechado">
             <div class="card-body">
-              <h5 class="card-title">Mechado</h5>
-              <p class="card-text">These tacos are loaded with juicy shrimp marinated in a spicy blend of chili powder </p>
-              <a href="#" class="btn btn-light">See Full Details</a>
+              <h5 class="card-title">Nilagang Baka </h5>
+              <p class="card-text">For a dish you can directly translate into English with the phrase “boiled beef,” </p>
+              <a href="view-product.php?id=14" class=" btn btn-light">See Full Details</a>
             </div>
           </div>
 
@@ -76,8 +76,8 @@
             <img src="images/Bicol-Express.png" class="card-img-top" alt="Bicol Express">
             <div class="card-body">
               <h5 class="card-title">Bicol Express</h5>
-              <p class="card-text">These cookies are the perfect balance of chewy and crispy, melted chocolate.</p>
-              <a href="#" class="btn btn-light">See Full Details</a>
+              <p class="card-text">Bicol Express is a popular spicy Filipino dish wherein pork is cooked in coconut milk along with chili peppers.</p>
+              <a href="view-product.php?id=20" class="btn btn-light">See Full Details</a>
             </div>
           </div>
         </div>

@@ -52,10 +52,16 @@ $stmt->close();
     }
 
     .card-title {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       /* Adjust font size to match <h1> */
       font-weight: bold;
 
+    }
+
+    .card-body h1 {
+      font-size: 2rem;
+      /* Adjust font size to match <h2> */
+      color: grey;
     }
 
     .card-body h4 {
@@ -86,7 +92,7 @@ $stmt->close();
     }
 
     .card-title {
-      font-size: 4rem;
+      font-size: 3rem;
       /* Adjust font size to match <h1> */
       font-weight: bold;
       margin-left: -5px;
@@ -256,8 +262,8 @@ $stmt->close();
               </div>
               <div class="col-md-5">
                 <div class="card-body">
-                  <h3 class="card-title "><?= htmlspecialchars($row['product_name']) ?></h3>
-                  <h4><?= htmlspecialchars($row['category']) ?></h4>
+                  <h6 class="card-title "><?= htmlspecialchars($row['product_name']) ?></h6>
+                  <h1><?= htmlspecialchars($row['category']) ?></h1>
                   <p class="card-text mt-10"><?= nl2br(htmlspecialchars($row['description'])) ?></p>
                   <div class="nutrient-content">
                     <p>

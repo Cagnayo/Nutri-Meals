@@ -85,8 +85,8 @@ $result = $con->query("SELECT * FROM `admin-series`");
 
     .btn-group-sm {
 
-     display: flex;
-     align-self: center;
+        display: flex;
+        align-self: center;
     }
 
     .top-header {
@@ -199,19 +199,13 @@ $result = $con->query("SELECT * FROM `admin-series`");
                             <label>Ingredients</label>
                             <textarea name="ingredients" id="modal-ingredients" class="form-control" required></textarea>
                         </div>
-
-                        <div class="form-group">
-                            <label>Vitamins</label>
-                            <textarea name="vitamins" class="form-control rich-text" id="modal-vitamins" rows="4"></textarea>
-                        </div>
-
                         <div class="form-group">
                             <label>Instructions</label>
                             <textarea name="instruction" class="form-control" id="modal-instruction" rows="4"></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Additional Images</label>
-                            <input type="file" name="images[]" class="form-control" multiple>
+                            <label>Nutrient Content</label>
+                            <textarea name="vitamins" class="form-control rich-text" id="modal-vitamins" rows="4"></textarea>
                         </div>
                     </div>
 
