@@ -23,79 +23,80 @@ if ($id) {
     $stmt = $con->prepare("SELECT * FROM `admin-series`");
 }
 
-
 $stmt->execute();
 $result = $stmt->get_result();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<title><?= htmlspecialchars(ucfirst($category)) ?> Recipes</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?= htmlspecialchars($pageTitle) ?></title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        h2.section-title {
+            padding-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #ed6d23;
+            font-size: 3.5rem;
+        }
+
+        .btn-outline-success i {
+            color: green;
+        }
+
+        .btn-outline-success:hover i {
+            color: white;
+        }
+
+        .card-text {
+            min-height: 70px;
+        }
+    </style>
 </head>
-<style>
-    body {
-        background-color: #f8f9fa;
-    }
-
-    .container {
-        margin-top: 20px;
-    }
-
-    .card {
-        margin-bottom: 20px;
-    }
-
-    .container.mt-5 h2 {
-        padding-bottom: 20px;
-        display: flex;
-        justify-content: center;
-        font-weight: bold;
-        color: #ed6d23;
-        font-size: 3.5rem;
-     font-family: "poppins" ;
-
-    }
-
-    .container.mt-5 button i {
-        color: green;
-    }
-
-    .container.mt-5 button i:hover {
-        color: white;
-    }
-
-    .container.mt-5 .btn-outline-success:hover i {
-        color: white;
-    }
-
-    
-</style>
 
 <body>
     <?php include 'header.php' ?>
-    <div class="container mt-5 ">
-        <a href="Recipes.php">
-            <button type="button" class="btn btn-outline-success">
-                <i class="fa-solid fa-arrow-left fa-2x "></i>
-            </button>
+
+    <div class="container mt-5">
+        <a href="Recipes.php" class="btn btn-outline-success mb-3">
+            <i class="fa-solid fa-arrow-left fa-2x"></i>
         </a>
-        <h2><?= htmlspecialchars(ucfirst($category)) ?> Recipes</h2>
+
+        <h2 class="section-title"><?= htmlspecialchars(ucfirst($category)) ?> Recipes</h2>
+
         <div class="row">
             <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <a href="view-product.php?id=<?= $row['id'] ?>"><img src="<?= htmlspecialchars($row['product_img']) ?>" class="card-img-top" alt="Product Image"><a />
-                            <div class="card-body">
-                                <h5 class="card-title"><?= htmlspecialchars($row['product_name']) ?></h5>
-                                <p class="card-text"><?= htmlspecialchars(substr($row['ingredients'], 0, 80)) ?>...</p>
-                            </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card shadow-sm">
+                        <a href="view-product.php?id=<?= $row['id'] ?>">
+                            <img src="<?= htmlspecialchars($row['product_img']) ?>" class="card-img-top img-fluid" alt="Product Image">
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title"><?= htmlspecialchars($row['product_name']) ?></h5>
+                            <p class="card-text"><?= htmlspecialchars(substr(strip_tags($row['ingredients']), 0, 80)) ?>...</p>
+                        </div>
                     </div>
                 </div>
             <?php endwhile; ?>

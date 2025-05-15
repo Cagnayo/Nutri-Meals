@@ -156,9 +156,17 @@
         </div>
       </div>
     </section>
-
-
-
+    <footer class="bg-body-tertiary text-center text-lg-start pt-1">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+        © 2025 Credits Belong to:
+        <a class="text-body" href="https://panlasangpinoy.com/">panlasangpinoy.com</a>
+        <div class="login-button">
+          <p> Login as Admin <a class="text-body" href="login.php">Login</a></p>
+        </div>
+      </div>
+      <!-- Copyright -->
+    </footer>
     <!-- Slider Script -->
     <script>
       const slider = document.getElementById('slider');
