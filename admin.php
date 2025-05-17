@@ -186,14 +186,13 @@ $result = $con->query("SELECT * FROM `admin-series`");
                                 <option value="Fish">Fish</option>
                             </select>
                         </div>
-
-                        <div class="form-group">
-                            <label>Product Image</label>
-                            <input type="file" name="product_img" id="modal-product-img" class="form-control">
-                        </div>
                         <div class="form-group">
                             <label>Description</label>
                             <textarea name="description" class="form-control" id="modal-description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Product Image</label>
+                            <input type="file" name="product_img" id="modal-product-img" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Ingredients</label>

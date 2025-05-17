@@ -98,54 +98,82 @@
         <div class="slider-container" id="slider">
           <div class="slide">
             <div class="image-wrapper">
-              <a href="#">
-                <img src="images/adobong-manok.jpg " href="#" alt="Appetizers and Snacks">
+              <a href="view-product.php?id=21">
+                <img src="images/Batangas Kaldereta.webp " href="#" alt="Appetizers and Snacks">
               </a>
               <div class="overlay-text">
-                <a href="#" style="text-decoration: none; color: #fff;">Appetizers and Snacks</a>
+                <a href="view-product.php?id=21" style="text-decoration: none; color: #fff;">Batangas Kaldereta</a>
               </div>
             </div>
           </div>
           <div class="slide">
             <div class="image-wrapper">
-              <img src="images/adobong-manok.jpg" alt="Breakfast">
-              <div class="overlay-text">Breakfast</div>
+              <a href="view-product.php?id=13">
+                <img src="images/Filipino-Fried-Chicken.jpg" alt="Breakfast">
+              </a>
+              <div class="overlay-text">
+                <a href="view-product.php?id=13" style="text-decoration: none; color: #fff;"> Filipino Fried Chicken</a>
+              </div>
             </div>
           </div>
           <div class="slide">
             <div class="image-wrapper">
-              <img src="images/adobong-manok.jpg" alt="Soups">
-              <div class="overlay-text">Soups</div>
+              <a href="view-product.php?id=15">
+                <img src="images/ginisang-repolyo-with-egg.jpg" alt="Soups">
+              </a>
+              <div class="overlay-text" style="text-decoration: none; color: #fff;">
+                <a href="view-product.php?id=15" style="text-decoration: none; color: #fff;"> Ginisang Repolyo </a>
+              </div>
+            </div>
+          </div>
+          <div class=" slide">
+            <div class="image-wrapper">
+              <a href="view-product.php?id=16">
+                <img src="images/fish-sinigang.jpg" alt="Soups">
+              </a>
+              <div class="overlay-text" style="text-decoration: none; color: #fff;">
+                <a href="view-product.php?id=16" style="text-decoration: none; color: #fff;"> Fish Sinigang </a>
+              </div>
             </div>
           </div>
           <div class="slide">
             <div class="image-wrapper">
-              <img src="images/adobong-manok.jpg" alt="Mixed Dishes">
-              <div class="overlay-text">Mixed Dishes</div>
+              <a href="view-product.php?id=24">
+                <img src="images/product_image/igado.jpg" alt="Soups">
+              </a>
+              <div class="overlay-text" style="text-decoration: none; color: #fff;">
+                <a href="view-product.php?id=24" style="text-decoration: none; color: #fff;"> Igado </a>
+              </div>
             </div>
           </div>
           <div class="slide">
             <div class="image-wrapper">
-              <img src="images/adobong-manok.jpg" alt="Salad" href="#">
-              <div class="overlay-text">Salads</div>
+              <a href="view-product.php?id=26">
+                <img src="images/product_image/Beef-Chopsuey.webp" alt="Soups">
+              </a>
+              <div class="overlay-text" style="text-decoration: none; color: #fff;">
+                <a href="view-product.php?id=26" style="text-decoration: none; color: #fff;"> Beef Chopsuey </a>
+              </div>
             </div>
           </div>
           <div class="slide">
             <div class="image-wrapper">
-              <img src="images/adobong-manok.jpg" alt="Desserts">
-              <div class="overlay-text">Desserts</div>
+              <a href="view-product.php?id=28">
+                <img src="images/product_image/sarciadong-pechay.jpg" alt="Soups">
+              </a>
+              <div class="overlay-text" style="text-decoration: none; color: #fff;">
+                <a href="view-product.php?id=28" style="text-decoration: none; color: #fff;"> Sarciadong Pechay </a>
+              </div>
             </div>
           </div>
           <div class="slide">
             <div class="image-wrapper">
-              <img src="images/adobong-manok.jpg" alt="Seafood">
-              <div class="overlay-text">Seafood</div>
-            </div>
-          </div>
-          <div class="slide">
-            <div class="image-wrapper">
-              <img src="images/adobong-manok.jpg" alt="Noodles">
-              <div class="overlay-text">Noodles</div>
+              <a href="view-product.php?id=27">
+                <img src="images/product_image/Chicken-Adobo.jpg" alt="Soups">
+              </a>
+              <div class="overlay-text" style="text-decoration: none; color: #fff;">
+                <a href="view-product.php?id=27" style="text-decoration: none; color: #fff;"> Sarciadong Pechay </a>
+              </div>
             </div>
           </div>
         </div>

@@ -256,8 +256,8 @@ $stmt->close();
         <?php if (!empty($row['product_img'])): ?>
           <div class="card mb-3" style="width: 100%; height: 100%;">
             <div class="row g-0">
-              <div class="col-md-7">
-                <img src="<?= htmlspecialchars($row['product_img']) ?>" alt="Product Image" class=" object-fit-xxl-contain border rounded my-3" style="height: auto ; width:auto ;">
+                <div class="col-md-7 d-flex align-items-center justify-content-center">
+                <img src="<?= htmlspecialchars($row['product_img']) ?>" alt="Product Image" class="object-fit-xxl-contain border rounded my-3" style="height: auto; max-width: 100%;">
               <?php endif; ?>
               </div>
               <div class="col-md-5">
@@ -271,10 +271,10 @@ $stmt->close();
                         <h6 class=""> NUTRIENT CONTENT</h6>
                       </button>
                     </p>
-                    <div style="min-height: 150px;">
+                    <div style="min-height: 220px;">
                       <div class="collapse collapse-horizontal" id="collapseWidthExample">
-                        <div class="card card-body" style="width: 500px;">
-                          <div class="vitamin-content">
+                        <div class="card card-body" style="width: 510px;">
+                          <div class="vitamin-content" style=" font-size: 15px; max-height: 150 px;">
                             <div>
                               <?= nl2br(htmlspecialchars_decode($row['vitamins'])) ?>
                             </div>
@@ -381,6 +381,6 @@ $stmt->close();
   // Optionally activate "Ingredients" by default
   activateButton(ingredientsBtn);
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
 </body>
