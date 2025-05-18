@@ -18,6 +18,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 /* General Reset */
 * {
   margin: 0;
@@ -39,7 +40,9 @@ header {
   z-index: 1000;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
-
+html {
+  scroll-behavior: smooth;
+}
 .header-container {
   max-width: 100%;
   padding: 0 8%;
@@ -303,7 +306,10 @@ color: white;
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   transition: transform 0.3s ease;
 }
-
+::-webkit-scrollbar {
+  display: none;
+  /* For Chrome, Safari */
+}
 .image-wrapper {
   position: relative;
   width: 100%;

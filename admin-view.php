@@ -1,24 +1,24 @@
 <?php
 include('connection.php');
-                        if (!isset($_GET['id'])) {
-                            echo "No product ID provided.";
-                            exit();
-                        }
+if (!isset($_GET['id'])) {
+    echo "No product ID provided.";
+    exit();
+}
 
-                        $id = intval($_GET['id']);
-                        $stmt = $con->prepare("SELECT * FROM `admin-series` WHERE id = ?");
-                        $stmt->bind_param("i", $id);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
+$id = intval($_GET['id']);
+$stmt = $con->prepare("SELECT * FROM `admin-series` WHERE id = ?");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$result = $stmt->get_result();
 
-                        if ($result->num_rows === 0) {
-                            echo "Product not found.";
-                            exit();
-                        }
+if ($result->num_rows === 0) {
+    echo "Product not found.";
+    exit();
+}
 
-                        $row = $result->fetch_assoc();
-                        $stmt->close();
-                        ?>
+$row = $result->fetch_assoc();
+$stmt->close();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -261,14 +261,14 @@ include('connection.php');
                 <?php if (!empty($row['product_img'])): ?>
                     <div class="card mb-3" style="width: 100%; height: 100%;">
                         <div class="row g-0">
-                            <div class="col-md-7">
-                                <img src="<?= htmlspecialchars($row['product_img']) ?>" alt="Product Image" class=" object-fit-xxl-contain border rounded my-3" style="height: auto ; width:auto ;">
+                            <div class="col-md-7 d-flex align-items-center justify-content-center">
+                                <img src="<?= htmlspecialchars($row['product_img']) ?>" alt="Product Image" class="object-fit-xxl-contain border rounded my-3" style="height: auto; max-width: 100%;">
                             <?php endif; ?>
                             </div>
                             <div class="col-md-5">
                                 <div class="card-body">
-                                    <h3 class="card-title "><?= htmlspecialchars($row['product_name']) ?></h3>
-                                    <h4><?= htmlspecialchars($row['category']) ?></h4>
+                                    <h6 class="card-title "><?= htmlspecialchars($row['product_name']) ?></h6>
+                                    <h1><?= htmlspecialchars($row['category']) ?></h1>
                                     <p class="card-text mt-10"><?= nl2br(htmlspecialchars($row['description'])) ?></p>
                                     <div class="nutrient-content">
                                         <p>
@@ -276,10 +276,10 @@ include('connection.php');
                                                 <h6 class=""> NUTRIENT CONTENT</h6>
                                             </button>
                                         </p>
-                                        <div style="min-height: 150px;">
+                                        <div style="min-height: 220px;">
                                             <div class="collapse collapse-horizontal" id="collapseWidthExample">
-                                                <div class="card card-body" style="width: 500px;">
-                                                    <div class="vitamin-content">
+                                                <div class="card card-body" style="width: 510px;">
+                                                    <div class="vitamin-content" style=" font-size: 15px; max-height: 150 px;">
                                                         <div>
                                                             <?= nl2br(htmlspecialchars_decode($row['vitamins'])) ?>
                                                         </div>

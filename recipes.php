@@ -92,7 +92,77 @@
       color: #ed6d23;
     }
 
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s forwards;
+    }
 
+    .col-lg-3.col-md-4.col-sm-6.fade-in a {
+      text-decoration: none;
+      color: green;
+    }
+
+    .col-lg-3.col-md-4.col-sm-6.fade-in h1 a {
+      font-family: 'Poppins-light', sans-serif;
+      font-size: 2rem;
+      color: black;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .hover-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      background-color: #FFFEFE;
+      border-radius: 13px;
+      height: 140px;
+  
+    }
+
+    .hover-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .hover-card a i {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .hover-card a {
+      color: inherit;
+      text-decoration: none;
+
+    }
+
+    .hover-card i {
+      transition: transform 0.4s ease, color 0.3s ease;
+      color: black;
+    }
+
+    .hover-card:hover i {
+      transform: scale(1.2);
+      color: #f26522;
+      /* Orange */
+    }
+
+    .hover-card a:hover {
+      color: green;
+      /* Text link turns green on hover */
+    }
+
+    .hover-card a:hover {
+      color: #f26522;
+      /* Optional: change text/icon color on hover */
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     /* Responsive spacing */
     @media (max-width: 768px) {
@@ -107,7 +177,7 @@
   <?php include('header.php'); ?>
 
   <section class="section-categories">
-    <div class="swiper mySwiper">
+    <div class="swiper mySwiper" style="height:300px;">
       <div class="swiper-wrapper">
         <div class="swiper-slide"> <img src="images/promo 1.jpg" alt="promo 1"> </div>
         <div class="swiper-slide"><img src="images/promo 2.jpg" alt="promo 1"> </div>
@@ -116,117 +186,66 @@
       <div class="swiper-pagination"></div>
     </div>
     </div>
-    <div class="categories text-center" style="color: #ed6d23;">
-      <h1><b>CATEGORIES</b></h1>
-    </div>
-    <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3 column-gap-5  row-gap-5 d-flex justify-content-center">
-      <div class="card mb-3" style="max-width: 400px;">
-        <div class="row g-0">
-          <div class="col-md-4 ps-5">
+    <div class="container text-center my-5">
+      <h2 class="fw-bold text-uppercase" style="color: #f26522; font-size:4rem; font-family:'poppins';">Categories</h2>
+      <!-- First Row: 3 items -->
+      <div class="row justify-content-center g-4 mt-4">
+        <div class="col-lg-3 col-md-4 col-sm-6 fade-in">
+          <div class="p-3 border hover-card">
             <a href="category-view.php?category=Pork">
-              <i class="fa-solid fa-bacon fa-6x"></i>
+              <i class="fa-solid fa-bacon fa-4x"></i>
             </a>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body ">
-              <div class="card-title d-flex justify-content-center align-item-center">
-                <h1><a href="category-view.php?category=Pork">Pork</a></h1>
-              </div>
+            <div class="card-title d-flex justify-content-center align-item-center">
+              <h1><a href="category-view.php?category=Pork">Pork</a></h1>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card mb-3" style="max-width: 400px;">
-        <div class="row g-0">
-          <div class="col-md-4 ps-5">
+        <div class="col-lg-3 col-md-4 col-sm-6 fade-in">
+          <div class="p-3 border  hover-card">
             <a href="category-view.php?category=Beef">
-              <i class="fa-solid fa-cow fa-5x"></i>
+              <i class="fa-solid fa-cow fa-4x"></i>
             </a>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <div class="card-title d-flex justify-content-center align-item-center">
-                <h1><a href="category-view.php?category=Beef">Beef</a></h1>
-              </div>
+            <div class="card-title d-flex justify-content-center align-item-center">
+              <h1><a href="category-view.php?category=Beef">Beef</a></h1>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card mb-3" style="max-width: 400px;">
-        <div class="row g-0">
-          <div class="col-md-4 ps-5">
+        <div class="col-lg-3 col-md-4 col-sm-6 fade-in">
+          <div class="p-3 border hover-card">
             <a href="category-view.php?category=Chicken">
-              <i class="fa-solid fa-drumstick-bite fa-6x"></i>
+              <i class="fa-solid fa-drumstick-bite fa-4x"></i>
             </a>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <div class="card-title d-flex justify-content-center align-item-center">
-                <a href="category-view.php?category=Chicken">
-                  <h1> Chicken</h1>
-                </a>
-              </div>
+            <div class="card-title d-flex justify-content-center align-item-center">
+              <h1><a href="category-view.php?category=Chicken"> Chicken</a></h1>
             </div>
           </div>
         </div>
       </div>
-      <div class="card mb-3" style="max-width: 400px;">
-        <div class="row g-0">
-          <div class="col-md-4 ps-5">
+
+      <!-- Second Row: 2 items centered -->
+      <div class="row justify-content-center g-4 mt-2 ">
+        <div class="col-lg-3 col-md-4 col-sm-6 fade-in">
+          <div class="p-3 border  hover-card">
             <a href="category-view.php?category=Vegetable">
-              <i class="fa-solid fa-carrot fa-6x"></i>
+              <i class="fa-solid fa-carrot fa-4x"></i>
             </a>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <div class="card-title d-flex justify-content-center align-item-center">
-                <a href="category-view.php?category=Vegetable">
-                  <h1> Vegetable</h1>
-                </a>
-              </div>
+            <div class="card-title d-flex justify-content-center align-item-center">
+              <h1><a href="category-view.php?category=Vegetable"> Vegetable</a></h1>
             </div>
           </div>
         </div>
-      </div>
-      <div class="card mb-3" style="max-width: 400px;">
-        <div class="row g-0">
-          <div class="col-md-4 ps-5">
-            <a href="category-view.php?category=Dessert">
-              <i class="fa-solid fa-cookie fa-6x"></i>
-            </a>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <div class="card-title d-flex justify-content-center align-item-center">
-                <a href="category-view.php?category=Dessert">
-                  <h1> Dessert</h1>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-3" style="max-width: 400px;">
-        <div class="row g-0">
-          <div class="col-md-4 ps-5">
+        <div class="col-lg-3 col-md-4 col-sm-6 fade-in">
+          <div class="p-3 border  hover-card">
             <a href="category-view.php?category=Fish">
-              <i class="fa-solid fa-fish fa-6x"></i>
+              <i class="fa-solid fa-fish fa-4x"></i>
             </a>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <div class="card-title d-flex justify-content-center align-item-center">
-                <a href="category-view.php?category=Fish">
-                  <h1> Fish</h1>
-                </a>
-              </div>
+            <div class="card-title d-flex justify-content-center align-item-center">
+              <h1><a href="category-view.php?category=Fish"> Fish</a></h1>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-
   </section>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
