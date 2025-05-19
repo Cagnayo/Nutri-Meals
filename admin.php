@@ -65,7 +65,7 @@ $result = $con->query("SELECT * FROM `admin-series`");
 
 <head>
     <meta charset="UTF-8">
-    <title>Fruit Admin Panel</title>
+    <title>Admin Panel</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>

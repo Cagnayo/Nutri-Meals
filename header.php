@@ -169,7 +169,7 @@
           <ul class="nav-links">
             <li><a href="index.php">Home</a></li>
             <li><a href="recipes.php">All Recipes</a></li>
-            <li><a href="view-product.php?id=13">Top Search Meal</a></li>
+            <li><a href="view-product.php?id=25">Top Search Meal</a></li>
           </ul>
         </nav>
         <form id="search-form" class="search-form" role="search">

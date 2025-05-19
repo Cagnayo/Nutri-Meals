@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="create-account d-flex justify-content-center ">
                 <p> Or</p>
-                <a href="create-account.php"> create a account</a>
+                <a href="index.php"> Back to HomePage</a>
             </div>
             <form action="" method="post">
                 <div class="input-group mb-3">
