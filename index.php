@@ -271,7 +271,7 @@
             </div>
             <div class="slide">
               <div class="image-wrapper">
-                <a href="view-product.php?id=27">
+                <a href="view-product.php?id=25">
                   <img src="images/product_image/pork sinigang.jpg" alt="Soups">
                 </a>
                 <div class="overlay-text" style="text-decoration: none; color: #fff;">

@@ -353,7 +353,16 @@ color: white;
   transition: background-color 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
 
+  .hero-image {
+    margin-top: 20px;
+  }
+}
 /* Responsive */
 @media (max-width: 992px) {
   .slide {
