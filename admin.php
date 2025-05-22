@@ -57,7 +57,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Fetch data
-$result = $con->query("SELECT * FROM `admin-series`");
+$filterCategory = $_GET['category'] ?? '';
+if ($filterCategory && $filterCategory !== 'All') {
+    $stmt = $con->prepare("SELECT * FROM `admin-series` WHERE category = ?");
+    $stmt->bind_param("s", $filterCategory);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
+} else {
+    $result = $con->query("SELECT * FROM `admin-series`");
+}
 ?>
 
 <!DOCTYPE html>
@@ -105,6 +114,14 @@ $result = $con->query("SELECT * FROM `admin-series`");
                 <span class="glyphicon glyphicon-log-out"></span> Logout
             </a>
 
+        </div>
+        <div class="btn-group" style="margin-bottom: 15px;">
+            <a href="?category=All" class="btn btn-primary">All Meals</a>
+            <a href="?category=Pork" class="btn btn-default">Pork</a>
+            <a href="?category=Beef" class="btn btn-default">Beef</a>
+            <a href="?category=Chicken" class="btn btn-default">Chicken</a>
+            <a href="?category=Vegetable" class="btn btn-default">Vegetable</a>
+            <a href="?category=Fish" class="btn btn-default">Fish</a>
         </div>
         <table class="table table-bordered table-hover">
             <thead>
